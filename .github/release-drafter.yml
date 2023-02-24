@@ -1,0 +1,2 @@
+_extends: .github
+tag-template: HelloWorldPlugin-$NEXT_MINOR_VERSION
