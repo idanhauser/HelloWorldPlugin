@@ -7,6 +7,4 @@
     <f:entry title="${%Name2}" field="name2">
         <f:textbox/>
     </f:entry>
-
-    <f:dropdownDescriptorSelector field="BaseClassExtensionPoint" title="Base Class Extension Point"  />
 </j:jelly>
