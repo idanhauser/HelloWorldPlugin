@@ -39,11 +39,7 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
     @Extension
     public static final class DescriptorImpl extends BuildStepDescriptor<Builder> {
 
-        private final DescriptorExtensionList<BaseClassExtensionPoint, BaseDescriptors> baseclassDescriptors;
 
-        public DescriptorImpl() {
-            this.baseclassDescriptors = Jenkins.get().getDescriptorList(BaseClassExtensionPoint.class);
-        }
 
         @Override
         public boolean isApplicable(Class<? extends AbstractProject> aClass) {

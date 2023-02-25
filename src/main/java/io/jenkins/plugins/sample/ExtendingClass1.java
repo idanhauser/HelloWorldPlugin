@@ -2,11 +2,15 @@ package io.jenkins.plugins.sample;
 
 import hudson.Extension;
 import hudson.model.Describable;
+import hudson.model.Descriptor;
+import jenkins.model.Jenkins;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.DataBoundSetter;
 
+import java.util.Objects;
+
 @Extension
-public class ExtendingClass1 extends BaseDescriptors implements Describable<BaseClassExtensionPoint> {
+public class ExtendingClass1 extends BaseClassExtensionPoint implements Describable<BaseClassExtensionPoint> {
     private String name1;
     private String name2;
 
@@ -44,8 +48,11 @@ public class ExtendingClass1 extends BaseDescriptors implements Describable<Base
         return "First Extension";
     }
 
+
     @Override
-    public BaseDescriptors getDescriptor() {
-        return null;
+    @SuppressWarnings("unchecked")
+
+    public Descriptor<BaseClassExtensionPoint> getDescriptor() {
+        return (Descriptor<BaseClassExtensionPoint>) Objects.requireNonNull(Jenkins.getInstanceOrNull()).getDescriptorOrDie(getClass());
     }
 }
