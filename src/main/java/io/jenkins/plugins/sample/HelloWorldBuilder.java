@@ -2,10 +2,12 @@ package io.jenkins.plugins.sample;
 
 import hudson.*;
 import hudson.model.AbstractProject;
+import hudson.model.Descriptor;
 import hudson.model.Run;
 import hudson.model.TaskListener;
 import hudson.tasks.Builder;
 import hudson.tasks.BuildStepDescriptor;
+import hudson.util.ListBoxModel;
 import jenkins.model.Jenkins;
 import org.kohsuke.stapler.DataBoundConstructor;
 
@@ -16,29 +18,39 @@ import org.kohsuke.stapler.DataBoundSetter;
 
 public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
 
-    private BaseClassExtensionPoint baseClassExtensionPoint;
+    private final Fruit fruit;
 
 
     @DataBoundConstructor
-    public HelloWorldBuilder(BaseClassExtensionPoint baseClassExtensionPoint) {
-        this.baseClassExtensionPoint = baseClassExtensionPoint;
-
+    public HelloWorldBuilder(Fruit fruit) {
+        this.fruit = fruit;
     }
 
-    public BaseClassExtensionPoint getBaseClassExtensionPoint() {
-        return baseClassExtensionPoint;
+    public Fruit getFruit() {
+        return fruit;
+    }
+
+    public DescriptorExtensionList<Fruit, Descriptor<Fruit>> getFruitDescriptors() {
+        return Jenkins.get().getDescriptorList(Fruit.class);
     }
 
 
+//    @Extension
+//    public static final class DescriptorImpl {
+//
+//        public ListBoxModel doFillFruitItems() {
+//            return new ListBoxModel(
+//                    new ListBoxModel.Option("Apple"),
+//                    new ListBoxModel.Option("Banana")
+//            );
+//        }
 
-    @Override
     public void perform(Run<?, ?> run, FilePath workspace, EnvVars env, Launcher launcher, TaskListener listener) throws InterruptedException, IOException {
 
     }
 
     @Extension
     public static final class DescriptorImpl extends BuildStepDescriptor<Builder> {
-
 
 
         @Override
@@ -54,3 +66,4 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
     }
 
 }
+
