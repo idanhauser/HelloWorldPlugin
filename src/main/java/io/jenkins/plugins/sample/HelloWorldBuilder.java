@@ -35,16 +35,6 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
     }
 
 
-//    @Extension
-//    public static final class DescriptorImpl {
-//
-//        public ListBoxModel doFillFruitItems() {
-//            return new ListBoxModel(
-//                    new ListBoxModel.Option("Apple"),
-//                    new ListBoxModel.Option("Banana")
-//            );
-//        }
-
     public void perform(Run<?, ?> run, FilePath workspace, EnvVars env, Launcher launcher, TaskListener listener) throws InterruptedException, IOException {
 
     }
