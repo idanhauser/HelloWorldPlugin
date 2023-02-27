@@ -2,11 +2,14 @@
 <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout"
          xmlns:t="/lib/hudson" xmlns:f="/lib/form">
 
+    <f:entry title="My Nested Object">
 
-    <f:property  field="cert.token" />
+        <f:property field="cert.token"/>
 
-    <f:property  field="cert.teamId"/>
+        <f:property field="cert.teamId"/>
 
-    <f:dropdownDescriptorSelector field="fruit" title="Fruits" descriptors="${it.fruitDescriptors}"/>
+        <f:dropdownDescriptorSelector field="fruit" title="Fruits" descriptors="${it.fruitDescriptors}"/>
+    </f:entry>
+
 
 </j:jelly>
