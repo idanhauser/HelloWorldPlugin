@@ -3,8 +3,9 @@
          xmlns:t="/lib/hudson" xmlns:f="/lib/form">
 
 
-    <f:property field="cert" propertyDescriptor="${it.CertDescriptor}"/>
+    <f:property  field="cert.token" />
 
+    <f:property  field="cert.teamId"/>
 
     <f:dropdownDescriptorSelector field="fruit" title="Fruits" descriptors="${it.fruitDescriptors}"/>
 
