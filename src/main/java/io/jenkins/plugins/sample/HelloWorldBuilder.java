@@ -7,14 +7,13 @@ import hudson.model.Run;
 import hudson.model.TaskListener;
 import hudson.tasks.Builder;
 import hudson.tasks.BuildStepDescriptor;
-import hudson.util.ListBoxModel;
+import hudson.util.Secret;
 import jenkins.model.Jenkins;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 import java.io.IOException;
 
 import jenkins.tasks.SimpleBuildStep;
-import org.kohsuke.stapler.DataBoundSetter;
 
 public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
 
@@ -24,7 +23,8 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
 
 
     @DataBoundConstructor
-    public HelloWorldBuilder(Cert cert, Fruit fruit) {
+    public HelloWorldBuilder( Cert cert, Fruit fruit) {
+
         this.fruit = fruit;
         this.cert = cert;
     }

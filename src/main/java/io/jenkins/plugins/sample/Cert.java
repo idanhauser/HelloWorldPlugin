@@ -30,4 +30,10 @@ public class Cert extends AbstractDescribableImpl<Cert> {
             return "";
         }
     }
+
+    public static class CertDescriptor extends Descriptor<Cert> {
+        public String getDisplayName() {
+            return "";
+        }
+    }
 }
