@@ -20,10 +20,17 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
 
     private final Fruit fruit;
 
+    private final Cert cert;
+
 
     @DataBoundConstructor
-    public HelloWorldBuilder(Fruit fruit) {
+    public HelloWorldBuilder(Cert cert, Fruit fruit) {
         this.fruit = fruit;
+        this.cert = cert;
+    }
+
+    public Cert getCert() {
+        return cert;
     }
 
     public Fruit getFruit() {

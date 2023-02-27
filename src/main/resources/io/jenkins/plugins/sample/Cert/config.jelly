@@ -1,0 +1,15 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form">
+
+    <f:entry title="Token" field="token">
+        <div style="display: flex; align-items: center;">
+            <f:password/>
+        </div>
+
+    </f:entry>
+
+
+    <f:entry title="${%Team-id}" field="teamId" description="Leave empty for personal workspace">
+        <f:textbox placeholder="Your Team's ID"/>
+    </f:entry>
+</j:jelly>
