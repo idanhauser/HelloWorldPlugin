@@ -7,6 +7,7 @@ import hudson.model.Descriptor;
 public class Container implements Describable<Container>, ExtensionPoint {
     @Override
     public Descriptor<Container> getDescriptor() {
-        return null;
+         return Jenkins.get().getDescriptorOrDie(getClass());
+
     }
 }
