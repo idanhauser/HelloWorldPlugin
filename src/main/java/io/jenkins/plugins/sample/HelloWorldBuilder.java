@@ -7,35 +7,50 @@ import hudson.model.Run;
 import hudson.model.TaskListener;
 import hudson.tasks.Builder;
 import hudson.tasks.BuildStepDescriptor;
-import hudson.util.ListBoxModel;
 import jenkins.model.Jenkins;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 import java.io.IOException;
+import java.util.List;
 
 import jenkins.tasks.SimpleBuildStep;
-import org.kohsuke.stapler.DataBoundSetter;
 
 public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
 
-    private final Fruit fruit;
+//    private Fruit fruit;
+    private final Container container;
 
+//    private List<StringWarp> seeds;
 
     @DataBoundConstructor
-    public HelloWorldBuilder(Fruit fruit) {
-        this.fruit = fruit;
+    public HelloWorldBuilder(Container container) {
+        this.container = container;
+//        if (container instanceof Container1) {
+//            fruit = ((Container1) container).getFruit();
+//        }
     }
 
-    public Fruit getFruit() {
-        return fruit;
+//    public List<StringWarp> getSeeds() {
+//        if(fruit instanceof Apple) {
+//            return ((Apple) fruit).getSeeds();
+//        }
+//        return null;
+//    }
+//
+//    public void setStringWarp(List<StringWarp> stringWarp) {
+//        this.seeds = stringWarp;
+//    }
+
+    public Container getContainer() {
+        return container;
     }
 
-    public DescriptorExtensionList<Fruit, Descriptor<Fruit>> getFruitDescriptors() {
-        return Jenkins.get().getDescriptorList(Fruit.class);
+    public DescriptorExtensionList<Container, Descriptor<Container>> getContainerDescriptors() {
+        return Jenkins.get().getDescriptorList(Container.class);
     }
 
-
-    public void perform(Run<?, ?> run, FilePath workspace, EnvVars env, Launcher launcher, TaskListener listener) throws InterruptedException, IOException {
+    public void perform(Run<?, ?> run, FilePath workspace, EnvVars env, Launcher launcher, TaskListener
+            listener) throws InterruptedException, IOException {
 
     }
 

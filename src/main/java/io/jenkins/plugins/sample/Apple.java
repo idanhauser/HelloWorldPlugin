@@ -8,11 +8,22 @@ import org.kohsuke.stapler.DataBoundSetter;
 import java.util.List;
 
 public class Apple extends Fruit {
-    private final List<StringWarp> seeds;
+    private List<StringWarp> seeds;
+
+
+    public Apple() {
+        super("Apple");
+
+    }
 
     @DataBoundConstructor
     public Apple(List<StringWarp> seeds) {
         super("Apple");
+        this.seeds = seeds;
+    }
+
+    @DataBoundSetter
+    public void setSeeds(List<StringWarp> seeds) {
         this.seeds = seeds;
     }
 
